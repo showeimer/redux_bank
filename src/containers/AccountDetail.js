@@ -17,10 +17,12 @@ class AccountDetail extends Component {
 }
 
 function mapStateToProps(state) {
+  const userIdx = state.users.findIndex(user => user._id === state.selectedUser);
+  const accountIdx = state.users[userIdx].accounts.findIndex(account => account.id === state.selectedAccount);
   return {
-    user: state.selectedUser,
-    account: state.selectedAccount
-  }
+    account: state.users[userIdx].accounts[accountIdx],
+    user: state.users[userIdx]
+  };
 }
 
 export default connect(mapStateToProps,  null)(AccountDetail);
