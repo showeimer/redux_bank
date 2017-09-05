@@ -68,13 +68,6 @@ function mapDispatchToProps(dispatch) {
     }, dispatch)
 }
 
-/*
-
-You will need to create a mapDispatchToProps function here and
-return the action creator selectAccount - HINT: see the UserList
-component.
-
-*/
 
 
-export default connect(mapStateToProps,  null)(UserDetail);
+export default connect(mapStateToProps,  mapDispatchToProps)(UserDetail);
