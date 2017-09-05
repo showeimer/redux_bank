@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Transaction from './Transaction';
 
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
@@ -16,6 +17,8 @@ class AccountDetail extends Component {
 
         <button>Withdraw Funds</button>
         <Link to={`/users/${this.props.user._id}`}>Back to User Details</Link>
+
+        <Transaction balance={this.props.account.balance} />
       </div>
     )
   }
