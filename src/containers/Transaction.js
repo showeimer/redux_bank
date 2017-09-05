@@ -18,7 +18,7 @@ class Transaction extends Component {
             <ModalHeader>Make a withdrawal:</ModalHeader>
 
             <ModalBody>
-              <p>Your balance is: {this.props.account.balance}. Please choose from the following to withdraw:</p>
+              <p>Your balance is: <strong>${this.props.account.balance}</strong>. Please choose from the following to withdraw:</p>
             </ModalBody>
 
             <ModalFooter>

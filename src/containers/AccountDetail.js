@@ -28,13 +28,14 @@ class AccountDetail extends Component {
 
   render() {
     return (
-      <div>
-        <h2>Account Information</h2>
-        <h2>{this.props.account.accountType} for {this.props.user.name}</h2>
-        <h2>Balance: {this.props.account.balance}</h2>
+      <div className="jumbotron">
+        <h2 className="">{this.props.account.accountType} for {this.props.user.name}</h2>
+        <h2 className="lead">Account Information:</h2>
+        <hr className="my-4" />
+        <h2 className="lead">Balance: <strong>${this.props.account.balance}</strong></h2>
 
-        <button onClick={this.toggle}>Withdraw Funds</button>
-        <Link to={`/users/${this.props.user._id}`}>Back to User Details</Link>
+        <button className="btn btn-danger accountButton" onClick={this.toggle}>Withdraw Funds</button>
+        <Link className="btn btn-primary accountButton" to={`/users/${this.props.user._id}`}>Back to User Details</Link>
 
         <Transaction modal={this.state.modal} toggle={this.toggle} />
       </div>

@@ -17,9 +17,9 @@ class UserList extends Component {
             );
         });
         return (
-            <div>
+            <div className="userList bg-light">
               <h5>Users with open accounts:</h5>
-              <ul>
+              <ul className="list-group" id="user">
                 {users}
               </ul>
             </div>

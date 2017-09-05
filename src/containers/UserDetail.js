@@ -24,31 +24,31 @@ class UserDetail extends Component {
       //creating a Link with the account type for
       //each account.
       return (
-        <div key={account.id}>
+        // <div key={account.id}>
           <Link
+            key={account.id}
             onClick={() => this.props.selectAccount(account)}
+            className="btn btn-success accountButton"
             to={`/users/${id}/${account.id}`}>{account.accountType}</Link>
-        </div>
+        // </div>
 
       )
     })
     return (
-      <div className="col-md-6">
-        <div className= "card">
+      <div className="jumbotron">
           <div className= "card-block">
-            <h4 className= "card-title">Account Information</h4>
-            <h6 className= "card-subtitle mb-2 text-muted">{this.props.user.name}</h6>
+            <h3 className= "text-muted">{this.props.user.name}</h3>
+            <h4 className= "">Account Information:</h4>
+            <hr className="my-4" />
             <div className= "card-text">
-              <div>{this.props.user.email}</div>
-              <div>{this.props.user.phone}</div>
-              <div>{this.props.user.address}</div>
+              <div className="lead">{this.props.user.email}</div>
+              <div className="lead">{this.props.user.phone}</div>
+              <div className="lead">{this.props.user.address}</div>
 
             </div>
             {accounts}
           </div>
           <Link className="btn btn-primary" to="/users" >Back to List of Users</Link>
-        </div>
-
 
       </div>
     );
