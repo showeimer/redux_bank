@@ -28,8 +28,13 @@ const reducer = function(state = initialState, action) {
           })
 
         case WITHDRAW_FUNDS:
+
             const userIdx = state.users.findIndex(user => user._id === state.selectedUser);
-            const accountIdx = state.users[userIdx].accounts.findIndex(account => account.id === state.selectedAccount);
+            const accountIdx = state.users[userIdx].accounts.findIndex(account => account.id === state.selectedAccount.id);
+
+            console.log('userIdx', userIdx);
+            console.log('selectedAccount:', state.selectedAccount);
+            console.log('accountidx', accountIdx);
 
             return update(state, {
                 users: {
@@ -46,6 +51,7 @@ const reducer = function(state = initialState, action) {
                     }
                 }
             })
+
         default:
             return state;
     }

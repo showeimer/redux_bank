@@ -1,21 +1,44 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+
 import {withdrawFunds} from '../actions/index';
+import {Button, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
 
 class Transaction extends Component {
+  constructor(props) {
+    super(props);
+
+  }
   render() {
     return (
       <div>
-        <h3>Make a withdrawal:</h3>
-        <p>Your balance is: {this.props.balance}. Please choose from the following to withdraw:</p>
-        <button className="btn btn-primary">$5</button>
-        <button className="btn btn-success">$10</button>
-        <button className="btn btn-warning">$20</button>
-        <button className="btn btn-danger">Cancel</button>
+        <Modal isOpen={this.props.modal}>
+
+            <ModalHeader>Make a withdrawal:</ModalHeader>
+
+            <ModalBody>
+              <p>Your balance is: {this.props.account.balance}. Please choose from the following to withdraw:</p>
+            </ModalBody>
+
+            <ModalFooter>
+              <button className="btn btn-primary">$5</button>
+              <button className="btn btn-success">$10</button>
+              <button className="btn btn-warning">$20</button>
+              <button onClick={this.props.toggle}className="btn btn-danger">Cancel</button>
+
+            </ModalFooter>
+          </Modal>
       </div>
     )
   }
+}
+
+function mapStateToProps(state) {
+  console.log('Transaction', state.selectedAccount)
+  return {
+    account: state.selectedAccount,
+  };
 }
 
 function mapDispatchToProps(dispatch) {
@@ -24,4 +47,4 @@ function mapDispatchToProps(dispatch) {
     }, dispatch)
 }
 
-export default connect(null,  mapDispatchToProps)(Transaction);
+export default connect(mapStateToProps, mapDispatchToProps)(Transaction);
