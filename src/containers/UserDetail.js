@@ -62,6 +62,11 @@ function mapStateToProps(state) {
   };
 }
 
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({
+        selectAccount: selectAccount
+    }, dispatch)
+}
 
 /*
 
